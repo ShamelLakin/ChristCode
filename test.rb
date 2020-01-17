@@ -14,7 +14,7 @@ def scrape_verse_items(keyword)
           items = doc.css("ul.search-result li.reference")
           error = doc.css('div#noresults')
           
-            until error.any? do
+            until error do
                 if keyword != '' 
                     item_hash = {}
                     items.each do |item|
@@ -27,7 +27,7 @@ def scrape_verse_items(keyword)
                     puts "Please enter a valid search"
                 end 
                 
-                if error.any? 
+                if error 
                     break
                 end
             end
@@ -37,5 +37,5 @@ def scrape_verse_items(keyword)
 end
 
 puts scrape_verse_items('joy')
-
+binding.pry
 

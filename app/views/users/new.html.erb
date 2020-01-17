@@ -1,9 +1,4 @@
 <h1 class="title">Sign Up Page</h1> 
-<% if @user.errors.any? %>
-    <% @user.errors.full_messages.each do |error|%>
-        <p><%= error %></p>
-    <% end %>
-<% end %>
 
 <form action="/signup" method="POST">
     <label for="name">Name</label><br>
@@ -17,3 +12,5 @@
     <button type=submit>Submit</button>
 
 </form>
+
+<a href="/login">Already signed up, then login</a>
