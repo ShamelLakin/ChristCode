@@ -6,7 +6,6 @@ class User < ActiveRecord::Base
     validates :password, length: { :minimum => 8 }
 
 
-    has_many :verses, through: :favorites 
-    has_many :favorites
+    has_many :verses
 
 end
