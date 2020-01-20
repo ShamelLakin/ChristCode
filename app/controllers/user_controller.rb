@@ -7,7 +7,7 @@ class UserController < ApplicationController
     end
       
     get '/signup' do
-        erb :'/users/new.html'
+        erb :'/users/signup.html'
     end
     
     post '/signup' do 
@@ -16,7 +16,7 @@ class UserController < ApplicationController
               session[:username] = @user.username
               redirect '/users/home'
         else
-            erb :'/users/new.html'
+            erb :'/users/signup.html'
         end
     end
     

@@ -10,13 +10,17 @@ class ApplicationController < Sinatra::Base
   end
 
   get "/" do
+    if !logged_in?
     erb :'index.html'
+    else 
+      redirect 
+    end
   end
 
   helpers do 
 
     def logged_in?
-      !!session[]
+      !!session[:user_id]
     end 
 
   end 
