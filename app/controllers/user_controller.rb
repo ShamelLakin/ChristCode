@@ -1,13 +1,20 @@
 class UserController < ApplicationController
 
     get '/users/home' do 
-        @user = User.find_by(username: session[:username])
-        
-        erb :'/users/home.html'
+        if logged_in? && current_user
+            @verses = Verse.all
+            erb :'/users/home.html'
+        else
+            redirect "/login"
+        end
     end
       
     get '/signup' do
-        erb :'/users/signup.html'
+        if logged_in?
+            redirect "/users/home"
+        else
+            erb :'/users/signup.html'
+        end
     end
     
     post '/signup' do 
@@ -22,7 +29,11 @@ class UserController < ApplicationController
     
     
     get '/login' do 
-        erb :'/users/login.html'
+        if logged_in?
+            redirect "/users/home"
+        else
+            erb :'/users/login.html'
+        end
     end
     
     post '/login' do 
@@ -37,8 +48,12 @@ class UserController < ApplicationController
     end
     
     get '/logout' do 
-        session.clear
-        redirect '/login'
+        if logged_in?
+            session.clear
+            redirect '/login'
+        else
+            redirect '/login'
+        end
     end
     
 end 

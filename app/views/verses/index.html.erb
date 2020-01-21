@@ -1,0 +1,15 @@
+<h1>Verses area</h1>
+
+<ul>
+    <% @verses.each do |verse| %>
+        <li><%= verse.title %></li>
+        <li><%= verse.content %></li>
+        <li><%= verse.created_at.strftime("%m/%d/%y") %></li>
+        <a href="/users/verses/<%= verse.id %>">View Note</a>
+        <a href="/users/verses/<%= verse.id %>/edit">Edit Note</a>
+        <form action="" method="POST">
+            <input type="hidden" name="_method" value="DELETE">
+            <button type="submit">Delete Note</button>
+        </form>
+    <% end %>
+</ul>

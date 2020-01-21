@@ -1,8 +1,14 @@
-<form action="/verses" method="POST">
+<h2>Add Notes</h2>
+<form action="/users/verses" method="POST">
     <label for="biblebooks">Books of the Bible</label><br>
     <%# <input type="text" name="biblebooks" id="biblebooks"><br><br>
-    <button type=submit>Book DropDown</button> %>
-    <select name=>
+    <button type=submit>Book DropDown</button> %> 
+        <label for="title">Title: </label>
+        <input type="text" name="title">
+        <label for="content">Content: </label>
+        <textarea name="content" id="" cols="40" rows="20"></textarea>
+        <button type="submit">Create Note</button>
+    <%# <select name=>
         <option value="genesis">Genesis</option>
         <option value="exodus">Exodus</option>
         <option value="leviticus">Leviticus</option>
@@ -70,6 +76,6 @@
         <option value="jude">Jude</option>
         <option value="revelation">Revelation</option>
 
-    </select>
+    </select> %>
 
 </form>

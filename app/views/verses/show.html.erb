@@ -1,0 +1,7 @@
+<h2><%= @verse.title %></h2>
+<p><%= @verse.content %></p>
+<p>Creation Date: <%= @verse.created_at.strftime("%m/%d/%Y") %></p>
+<form action="/users/verses/<%= @verse.id %>" method="POST">
+    <input type="hidden" name="_method" value="DELETE">
+    <button type="submit">Delete Your Note</button>
+</form>
