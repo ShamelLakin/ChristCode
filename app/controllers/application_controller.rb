@@ -3,28 +3,28 @@ require './config/environment'
 class ApplicationController < Sinatra::Base
 
   configure do
-    set :public_folder, 'public'
-    set :views, 'app/views'
-    enable :sessions
-    set :session_secret, 'john_3_16'
+    set :public_folder, 'public' #Styling
+    set :views, 'app/views' #view templates
+    enable :sessions #Allowing us to keep track of user state
+    set :session_secret, 'john_3_16' #Protect from hackers unauthorized users random hex number
   end
 
   get "/" do
-    if !logged_in?
-    erb :'index.html'
-    else 
-      redirect 
+    if logged_in?
+      redirect '/users/home'
+    else
+      erb :'/root/index.html' #User should see starter page unless logged in
     end
   end
 
   helpers do 
 
     def logged_in?
-      !!session[:username]
+      !!session[:username] #checking to see who session belongs to
     end 
 
     def current_user
-      User.find_by(username: session[:username])
+      User.find_by(username: session[:username]) #finding current user
     end
 
   end 

@@ -1,12 +1,14 @@
 class VersesController < ApplicationController
 
     get "/users/verses" do
-        @verses = Verse.all
-        erb :"/verses/index.html"
+        if logged_in?
+            erb :"/verses/index.html"
+        else
+            erb :"/root/index.html"
+        end
     end 
 
-    
-    
+    # CREATE
     get '/users/verses/new' do # => check to see if your routes are pointing to the right file
         if logged_in?
             @verse = Verse.new
@@ -20,18 +22,24 @@ class VersesController < ApplicationController
         @verse = Verse.new
         @verse.title = params[:title]
         @verse.content = params[:content]
-        if @verse.save 
-            redirect "/users/verses/#{@verse.id}"
+        # making associations below
+        current_user.verses << @verse # HAS MANY HAS PLURAL WORD AFTER DOT NOTATION
+        # MAKE SURE TO CREATE THE TWO RELATIONSHIP
+        @verse.user = current_user # BELONGS TO HAS SINGULAR WORD AFTER DOT NOTATION
+        if @verse.save #true 
+            redirect "/users/verses"
         else
             erb :"/verses/new.html"
         end
     end
     
+    # READ(SHOW)
     get "/users/verses/:id" do |id|
         @verse = Verse.find_by_id(id) #perhaps access by :user_id or :username?
         erb :"/verses/show.html"
     end
 
+    # UPDATE(EDIT)
     get "/users/verses/:id/edit" do |id|
         if logged_in?
             @verse = Verse.find_by_id(id)
@@ -46,12 +54,13 @@ class VersesController < ApplicationController
         @verse.title = params[:title]
         @verse.content = params[:content]
         if @verse.save
-            redirect "/verses/#{id}" 
+            redirect "/users/verses/#{id}" 
         else
             erb :"/verses/edit.html"
         end
     end 
 
+    # DESTROY
     delete '/users/verses/:id' do |id|
         @verse = Verse.find_by_id(id)
         @verse.destroy

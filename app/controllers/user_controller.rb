@@ -37,10 +37,9 @@ class UserController < ApplicationController
     end
     
     post '/login' do 
-        @user = User.find_by(username: params[:username])
-        if @user && @user.authenticate(params[:password])
+        @user = User.find_by(username: params[:username]) #find if @user username exists 
+        if @user && @user.authenticate(params[:password]) # along with the passowrd
             session[:username] = @user.username
-              # binding.pry
             redirect '/users/home'
         else
             erb :'/users/login.html'

@@ -1,7 +1,10 @@
 <h2>Edit Your Note</h2>
-<form method="post" action="/users/verses/<%= @verse.id %>"> 
-    <input type="hidden" name="_method" value="PATCH">
+<form action="/users/verses/<%= @verse.id %>" method="POST"> 
+    <input id="hidden" type="hidden" name="_method" value="PATCH">
     <input type="text" name="title" value="<%= @verse.title %>">
-    <textarea name="content" id="content" cols="40" rows="20"><%= @verse.content %></textarea>
+    <textarea name="content" id="content" cols="40" rows="10"><%= @verse.content %></textarea>
     <button type="submit">Update Note</button>
 </form>
+<div>
+    <a href="/logout">Logout</a>
+</div>

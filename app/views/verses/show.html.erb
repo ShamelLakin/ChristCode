@@ -1,7 +1,16 @@
 <h2><%= @verse.title %></h2>
 <p><%= @verse.content %></p>
 <p>Creation Date: <%= @verse.created_at.strftime("%m/%d/%Y") %></p>
+<div>
+    <a href="/users/verses/new">Create another</a>
+</div>
+<div>
+    <a href="/users/verses/<%= @verse.id %>/edit">Edit Note</a>
+</div>
 <form action="/users/verses/<%= @verse.id %>" method="POST">
     <input type="hidden" name="_method" value="DELETE">
     <button type="submit">Delete Your Note</button>
 </form>
+<div>
+    <a href="/logout">Logout</a>
+</div>
