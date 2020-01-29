@@ -29,8 +29,8 @@
 
 👤 ** Shamel Lakins**
 
-* Twitter: [@ShamelLakins](https://twitter.com/@ShamelLakins)
-* Github: [@ShamelLakins](https://github.com/@ShamelLakins)
+* Twitter: [@ShamelLakin](https://twitter.com/@ShamelLakin)
+* Github: [@ShamelLakin](https://github.com/@ShamelLakin)
 
 ## Show your support
 
