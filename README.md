@@ -2,14 +2,14 @@
 <p>
   <img alt="Version" src="https://img.shields.io/badge/version-1.0-blue.svg?cacheSeconds=2592000" />
   <a href="#" target="_blank">
-    <img alt="License:  MITT" src="https://img.shields.io/badge/License- MITT-yellow.svg" />
+    <img alt="License:  MIT" src="https://img.shields.io/badge/License- MIT-yellow.svg" />
   </a>
-  <a href="https://twitter.com/@SShamelLakinss" target="_blank">
-    <img alt="Twitter: @SShamelLakinss" src="https://img.shields.io/twitter/follow/@SShamelLakinss.svg?style=social" />
+  <a href="https://twitter.com/@ShamelLakins" target="_blank">
+    <img alt="Twitter: @ShamelLakins" src="https://img.shields.io/twitter/follow/@ShamelLakins.svg?style=social" />
   </a>
 </p>
 
->  Taakke   notess  off  Bbiblee
+>  Take beautiful notes when studying your Bible
 
 ### 🏠 [Homepage]( https://github.com/ShamelLakin/ChristCode)
 
@@ -22,15 +22,15 @@
 ## Usage
 
 ```sh
- ggiit cloonee
+ git clone
 ```
 
 ## Author
 
-👤 ** Shamel Lakinss**
+👤 ** Shamel Lakins**
 
-* Twitter: [@@SShamelLakinss](https://twitter.com/@SShamelLakinss)
-* Github: [@@ShamelLakinss](https://github.com/@ShamelLakinss)
+* Twitter: [@ShamelLakins](https://twitter.com/@ShamelLakins)
+* Github: [@ShamelLakins](https://github.com/@ShamelLakins)
 
 ## Show your support
 
