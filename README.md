@@ -27,7 +27,7 @@
 
 ## Author
 
-👤 ** Shamel Lakins**
+👤 ** Shamel Lakin**
 
 * Twitter: [@ShamelLakin](https://twitter.com/@ShamelLakin)
 * Github: [@ShamelLakin](https://github.com/@ShamelLakin)
