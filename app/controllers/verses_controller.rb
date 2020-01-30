@@ -2,6 +2,7 @@ class VersesController < ApplicationController
 
     get "/users/verses" do
         if logged_in?
+            @verses = current_user.verses
             erb :"/verses/index.html"
         else
             erb :"/root/index.html"
@@ -10,7 +11,7 @@ class VersesController < ApplicationController
 
     # CREATE
     get '/users/verses/new' do # => check to see if your routes are pointing to the right file
-        if logged_in?
+        if logged_in? 
             @verse = Verse.new
             erb :"/verses/new.html"
         else
@@ -23,7 +24,7 @@ class VersesController < ApplicationController
         @verse.title = params[:title]
         @verse.content = params[:content]
         # making associations below
-        current_user.verses << @verse # HAS MANY HAS PLURAL WORD AFTER DOT NOTATION
+        # HAS MANY HAS PLURAL WORD AFTER DOT NOTATION
         # MAKE SURE TO CREATE THE TWO RELATIONSHIP
         @verse.user = current_user # BELONGS TO HAS SINGULAR WORD AFTER DOT NOTATION
         if @verse.save #true 
@@ -35,8 +36,15 @@ class VersesController < ApplicationController
     
     # READ(SHOW)
     get "/users/verses/:id" do |id|
-        @verse = Verse.find_by_id(id) #perhaps access by :user_id or :username?
-        erb :"/verses/show.html"
+        if logged_in? 
+            @verse = Verse.find_by_id(id) #perhaps access by :user_id or :username?
+            if current_user.verses.include?(@verse)
+                erb :"/verses/show.html"
+            end
+        else 
+            redirect "/"
+        end
+        redirect "/users/verses"
     end
 
     # UPDATE(EDIT)
@@ -64,6 +72,6 @@ class VersesController < ApplicationController
     delete '/users/verses/:id' do |id|
         @verse = Verse.find_by_id(id)
         @verse.destroy
-        redirect '/users/home'
+        redirect '/users/verses'
     end
 end 

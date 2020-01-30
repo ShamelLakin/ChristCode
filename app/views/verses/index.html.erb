@@ -1,15 +1,22 @@
 <h1>Verses area</h1>
+<div>
+    <a href="/users/verses/new">Create New Note</a>
+</div>
 
 <ul>
-    <% current_user.verses.each do |verse| %>
+    <% Helper.current_user(session).verses.each do |verse| %>
+        <li><%= verse.id %></li>
         <li><%= verse.title %></li>
         <li><%= verse.content %></li>
         <li><%= verse.created_at.strftime("%m/%d/%y") %></li>
         <a href="/users/verses/<%= verse.id %>">View Note</a>
         <a href="/users/verses/<%= verse.id %>/edit">Edit Note</a>
-        <form action="" method="POST">
+        <form action="/users/verses/<%= verse.id %>" method="POST">
             <input type="hidden" name="_method" value="DELETE">
             <button type="submit">Delete Note</button>
         </form>
     <% end %>
 </ul>
+<div>
+    <a href="/logout">Logout</a>
+</div>

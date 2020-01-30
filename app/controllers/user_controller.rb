@@ -1,8 +1,7 @@
 class UserController < ApplicationController
 
     get '/users/home' do 
-        if logged_in? && current_user
-            @verses = Verse.all
+        if logged_in?
             erb :'/users/home.html'
         else
             redirect "/login"
@@ -50,9 +49,8 @@ class UserController < ApplicationController
         if logged_in?
             session.clear
             redirect '/login'
-        else
-            redirect '/login'
         end
+        redirect '/login'
     end
     
 end 

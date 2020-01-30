@@ -1,4 +1,4 @@
-<h1>Hello, <%= current_user.name %></h1>
+<h1>Hello, <%= Helper.current_user(session).name %></h1>
 
 <div>
     <a href="/users/verses/new">Create a new note</a>

@@ -20,11 +20,11 @@ class ApplicationController < Sinatra::Base
   helpers do 
 
     def logged_in?
-      !!session[:username] #checking to see who session belongs to
+      Helper.logged_in?(session) #checking to see who session belongs to
     end 
 
     def current_user
-      User.find_by(username: session[:username]) #finding current user
+      Helper.current_user(session) #finding current user
     end
 
   end 
