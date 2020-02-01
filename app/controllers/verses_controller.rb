@@ -44,7 +44,6 @@ class VersesController < ApplicationController
         else 
             redirect "/"
         end
-        redirect "/users/verses"
     end
 
     # UPDATE(EDIT)
