@@ -12,6 +12,7 @@ class UserController < ApplicationController
         if logged_in?
             redirect "/users/home"
         else
+            @user = User.new
             erb :'/users/signup.html'
         end
     end
@@ -31,6 +32,7 @@ class UserController < ApplicationController
         if logged_in?
             redirect "/users/home"
         else
+            @user = User.new
             erb :'/users/login.html'
         end
     end
@@ -41,6 +43,7 @@ class UserController < ApplicationController
             session[:username] = @user.username
             redirect '/users/home'
         else
+            @user.errors << "Incorrect username or password"
             erb :'/users/login.html'
         end
     end

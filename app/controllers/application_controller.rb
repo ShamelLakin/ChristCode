@@ -1,8 +1,9 @@
 require './config/environment'
 
 class ApplicationController < Sinatra::Base
-
+  
   configure do
+  
     set :public_folder, 'public' #Styling
     set :views, 'app/views' #view templates
     enable :sessions #Allowing us to keep track of user state
